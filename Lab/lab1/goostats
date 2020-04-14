@@ -1,0 +1,14 @@
+
+# check for the right number of input arguments
+if [ $# -ne 2 ]
+  then
+    echo "goostats file1 file2"
+    echo "call goostats with two arguments"
+    exit 1
+fi
+
+sleep 0.25
+echo -n "Min: " > $2
+cat $1 | sort -n| head -1 >> $2
+echo -n "Max: " >> $2
+cat $1 | sort -n| tail -1 >> $2
